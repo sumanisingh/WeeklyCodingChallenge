@@ -1,20 +1,12 @@
 package weeklycodingchallengethree;
 
+import java.util.Arrays;
+
 public class HallwayLockers {
 
 	public static void main(String[] args) {
 
-		/*
-		 * boolean[] lockers = new boolean [100];
-		 * 
-		 * for(int i=0;i<=lockers.length;i++) { for(int j=i;j<lockers.length;j+=i) {
-		 * if(lockers[j]==true) { lockers[j]=false; }else { lockers[j]=true; } } }
-		 * for(int i=0;i<lockers.length;i++) { System.out.println(lockers[i] +" " + i);
-		 * }
-		 * 
-		 * } }
-		 */
- boolean [] lockers = new boolean [101];
+		 /*boolean [] lockers = new boolean [101];
 
   for(int i = 1; i < lockers.length; i++) {
  lockers[i] = true;
@@ -33,4 +25,24 @@ public class HallwayLockers {
 	  System.out.print(" " + i); 
  } 
  }
- } 
+ } */
+		  int[] arr = new int[100];
+	        Arrays.fill(arr,0); //0= closed, 1 = open
+	        for (int i = 1;i<=100;i++)
+	        {
+	            for (int j=i;j<=100;j+=i)
+	            {
+	                if (arr[j-1] == 0)
+	                    arr[j-1] = 1;
+	                else
+	                    arr[j-1] = 0;
+	            }
+	        }
+	        int count=0;
+	        for (int i=0;i< arr.length;i++){
+	            if (arr[i]==1)
+	                count++;
+	        }
+	        System.out.println("No. of lockers open after 100th pass : "+count);
+	    }
+}
